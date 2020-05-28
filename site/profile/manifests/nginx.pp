@@ -4,7 +4,7 @@ class profile::nginx {
   }
 
   file { '/etc/nginx/conf.d/10-test.conf'
-    ensure => file
-    source => 'puppet:///modules/profile/test.conf'
+    ensure => file,
+    source => 'puppet:///modules/profile/test.conf',
   }
 }
