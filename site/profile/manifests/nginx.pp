@@ -11,5 +11,6 @@ class profile::nginx {
   service { 'nginx':
     ensure => 'running',
     enable => 'true',
+    provider => 'systemd',
   }
 }
