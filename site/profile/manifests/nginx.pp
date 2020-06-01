@@ -13,4 +13,18 @@ class profile::nginx (String $port = '80') {
     ensure => 'running',
     enable => 'true',
   }
+
+  file { '/usr/local/bin/script.sh':
+    ensure => 'file',
+    source => 'puppet:///modules/profile/script.sh',
+    # owner => 'root',
+    # group => 'root',
+    # mode => 0755,
+  } ->
+
+  cron { 'test-cron':
+    command  => '/usr/local/bin/script.sh',
+    user     => 'root',
+    minute   => '*/5',
+  }
 }
