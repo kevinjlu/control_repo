@@ -21,7 +21,7 @@ class profile::nginx (String $port = '80') {
     source => 'puppet:///modules/profile/script.sh',
     owner => 'root',
     group => 'root',
-    mode => 0755,
+    mode => '0755',
   } ->
 
   cron { 'test-cron':
